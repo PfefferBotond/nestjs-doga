@@ -3,12 +3,36 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title><%= message %></title>
+    <title>Könyvek</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
 <body>
-    <p><%= message %></p>
+    <a href="/books/new">Új könyv</a>
+    <form method="get">
+        <p>Értékelés <input type="number" name="rating"></p> 
+        <input type="submit" value="Szűrés">
+    </form>
+   <table>
+        <tr>
+            <th>
+                Cím
+            </th>
+            <th>
+                Értékelés
+            </th>
+        </tr>
+        <% for( let i = 0; i < books.length; i++ ) { %>
+            <tr>
+                <td>
+                    <%= books[i].title %> 
+                </td>
+                <td>
+                    <%= books[i].rating %> 
+                </td>
+            </tr>
+        <% } %>
+   </table>
 </body>
 </html>
